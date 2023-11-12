@@ -33,5 +33,14 @@ public class Students {
                 .body(studentsService.ranking(page - 1, size));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<RankingDTO> search(
+            @RequestParam String name
+    ){
+        return ResponseEntity.ok()
+                .body(studentsService.byName(name));
+    }
+
 
 }
+

@@ -12,6 +12,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -30,5 +32,12 @@ public class StudentsService {
         Pageable pageable = PageRequest.of(page, size);
         return converter.toListRankingDTO(studentsRepository.findRanking(pageable), page, size);
     }
+
+    public RankingDTO byName(String name){
+        List<StudentsDAO> students = studentsRepository.findRanking();
+        StudentsDAO student = studentsRepository.findByName(name);
+        return new RankingDTO(student,students.indexOf(student) + 1 );
+    }
+
 
 }
