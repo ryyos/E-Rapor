@@ -20,6 +20,9 @@ CREATE TABLE `values`(
     IPA INT(3),
     MTK INT(3),
     IPS INT(3),
+    TOTAL INT(5),
     student_id VARCHAR(36) NOT NULL ,
     FOREIGN KEY (student_id) REFERENCES students(id)
 );
+
+UPDATE `values` SET total = MTK + IPA + IPS;
