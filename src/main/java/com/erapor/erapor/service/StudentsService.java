@@ -8,6 +8,8 @@ import com.erapor.erapor.repository.StudentsRepository;
 import com.erapor.erapor.repository.ValuesRepository;
 import com.erapor.erapor.utils.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,9 +26,9 @@ public class StudentsService {
     @Autowired
     Converter converter;
 
-    public List<StudentsDTO> ranking(){
-        List<StudentsDTO> studentsDTOS = converter.listDaoToDto(studentsRepository.findRanking());
-        return studentsDTOS;
+    public List<RankingDTO> ranking(Integer page, Integer size){
+        Pageable pageable = PageRequest.of(page, size);
+        return converter.toListRankingDTO(studentsRepository.findRanking(pageable), page, size);
     }
 
 }

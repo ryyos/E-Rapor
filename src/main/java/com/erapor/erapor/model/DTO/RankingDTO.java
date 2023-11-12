@@ -1,13 +1,12 @@
 package com.erapor.erapor.model.DTO;
 
 import com.erapor.erapor.model.DAO.StudentsDAO;
-import com.erapor.erapor.model.DAO.ValuesDAO;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import lombok.Data;
 
+@Data
 public class RankingDTO {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer ranking;
     private String name;
     private String major;
@@ -16,13 +15,25 @@ public class RankingDTO {
     private Integer IPS;
     private Integer total_value;
 
-    public RankingDTO(StudentsDAO studentsDAO, ValuesDAO valuesDAO){
+    public RankingDTO(StudentsDAO studentsDAO) {
         this.name = studentsDAO.getName();
         this.major = studentsDAO.getMajor();
-        this.MTK = valuesDAO.getMTK();
-        this.IPA = valuesDAO.getIPA();
-        this.IPS = valuesDAO.getIPS();
-        this.total_value = valuesDAO.getTOTAL();
+        this.MTK = studentsDAO.getValuesDAO().getMTK();
+        this.IPA = studentsDAO.getValuesDAO().getIPA();
+        this.IPS = studentsDAO.getValuesDAO().getIPS();
+        this.total_value = studentsDAO.getValuesDAO().getTOTAL();
+
+    }
+
+    public RankingDTO(StudentsDAO studentsDAO, Integer ranking) {
+        this.name = studentsDAO.getName();
+        this.major = studentsDAO.getMajor();
+        this.MTK = studentsDAO.getValuesDAO().getMTK();
+        this.IPA = studentsDAO.getValuesDAO().getIPA();
+        this.IPS = studentsDAO.getValuesDAO().getIPS();
+        this.total_value = studentsDAO.getValuesDAO().getTOTAL();
+        this.ranking = ranking;
+
 
     }
 
