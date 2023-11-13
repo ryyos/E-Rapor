@@ -25,10 +25,4 @@ CREATE TABLE `values`(
     FOREIGN KEY (student_id) REFERENCES students(id)
 );
 
-CREATE TEMPORARY TABLE alias AS
-SELECT ROW_NUMBER() OVER (ORDER BY total DESC) AS alias_id, t.*
-FROM `values` t ORDER BY total DESC;
-
-SELECT * FROM alias;
-
 UPDATE `values` SET total = MTK + IPA + IPS;

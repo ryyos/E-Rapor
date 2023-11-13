@@ -16,7 +16,7 @@ public interface StudentsRepository extends JpaRepository<StudentsDAO, String> {
     @Query("SELECT s FROM StudentsDAO s JOIN FETCH s.valuesDAO val ORDER BY val.TOTAL DESC")
     List<StudentsDAO> findRanking();
 
-    @Query("SELECT s FROM StudentsDAO s JOIN FETCH s.valuesDAO val WHERE s.name = :name")
+    @Query("SELECT s FROM StudentsDAO s JOIN FETCH s.valuesDAO val WHERE s.name LIKE %:name%")
     StudentsDAO findByName(@Param("name") String name);
 
 
