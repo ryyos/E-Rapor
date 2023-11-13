@@ -3,6 +3,7 @@ package com.erapor.erapor.model.DAO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
@@ -11,7 +12,8 @@ import lombok.Data;
 public class ValuesDAO {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private Integer IPA;
     private Integer IPS;
     private Integer MTK;

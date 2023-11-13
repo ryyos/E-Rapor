@@ -25,7 +25,7 @@ public class StudentsDTO {
         this.UUID = studentsDAO.getId();
         this.name = studentsDAO.getName();
         this.dob = studentsDAO.getDob();
-        this.NISN = studentsDAO.getNISN();
+        this.NISN = studentsDAO.getNisn();
         this.majors = studentsDAO.getMajor();
         this.gender = studentsDAO.getGender();
         this.city = studentsDAO.getCity();

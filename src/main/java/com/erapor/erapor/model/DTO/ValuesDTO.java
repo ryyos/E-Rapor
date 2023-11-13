@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class ValuesDTO {
 
-    private String id;
+    private Integer id;
     private Integer IPA;
     private Integer MTK;
     private Integer IPS;
