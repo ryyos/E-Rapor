@@ -40,4 +40,4 @@ CREATE TABLE accounts(
     UNIQUE (token)
 );
 
-UPDATE `values` SET total = MTK + IPA + IPS;
+UPDATE `values` SET TOTAL = MTK + IPA + IPS;
