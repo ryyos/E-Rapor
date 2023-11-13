@@ -17,7 +17,7 @@ CREATE TABLE students(
 );
 
 CREATE TABLE `values`(
-    id INT(10) PRIMARY KEY NOT NULL ,
+    id INT(10) PRIMARY KEY NOT NULL Auto_Increment,
     IPA INT(3),
     MTK INT(3),
     IPS INT(3),
