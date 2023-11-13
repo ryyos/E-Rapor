@@ -25,4 +25,17 @@ CREATE TABLE `values`(
     FOREIGN KEY (student_id) REFERENCES students(id)
 );
 
+CREATE TABLE accounts(
+    id int(6) NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL ,
+    token VARCHAR(100),
+    token_expired BIGINT,
+    student_id VARCHAR(36) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    UNIQUE (token)
+)
+
 UPDATE `values` SET total = MTK + IPA + IPS;
