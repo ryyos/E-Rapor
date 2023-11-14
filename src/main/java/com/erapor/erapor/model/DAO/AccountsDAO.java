@@ -30,7 +30,7 @@ public class AccountsDAO {
 
     @NotBlank
     @Size(max = 50)
-    private String phone;
+    private Integer phone;
 
     @Size(max = 100)
     private String token;

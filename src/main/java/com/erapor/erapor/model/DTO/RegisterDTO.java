@@ -25,4 +25,8 @@ public class RegisterDTO {
     @NotBlank
     @Size(max = 100)
     private String name;
+
+    @NotBlank
+    @Size(max = 50)
+    private Integer phone;
 }
